@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import Login from './Login';
+import MyDrawer from './MyDrawer';
 import HomePage from './HomePage';
-import UserInfo from './UserInfo';
+import UserProfile from './UserProfile';
 import AppInfo from './AppInfo';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -18,6 +20,7 @@ import {
   StatusBar,
   FlatList,
   Button,
+  Modal,
 } from 'react-native';
 
 import {
@@ -33,8 +36,9 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="UserInfo" component={UserInfo} />
-      <Tab.Screen name="HomePage" component={HomePage} />
+      <Tab.Screen name="MyDrawer" component={MyDrawer} />
+      <Tab.Screen name="UserProfile" component={UserProfile} />
+      <Tab.Screen name="AppInfo" component={AppInfo} />
     </Tab.Navigator>
   );
 }
@@ -44,9 +48,12 @@ const LandingPage = ({navigation}) => {
   return (
     <>
       <StatusBar backgroundColor="#222222" barStyle="light-content" />
+
       <View style={styles.container}>
         <MyTabs />
       </View>
+
+      {/* <MyDrawer /> */}
     </>
   );
 };

@@ -64,11 +64,20 @@ const Login = ({navigation}) => {
             </View>
           </TouchableOpacity>
 
-          <View style={[styles.registerNavView, styles.registerNavJustify]}>
+          <View style={[styles.registerNavView, styles.navJustify]}>
             <Text style={styles.textSmall}>Dont have an account?</Text>
             <TouchableOpacity onPress={() => navigation.navigate('Register')}>
               <View style={styles.smallButtonView}>
                 <Text style={styles.smallButtonText}>REGISTER</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.navJustify}>
+            <Text style={styles.textStyling}>Or Login with</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+              <View style={styles.googleButtonView}>
+                <Text style={styles.googleTextStyling}>GOOGLE</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -156,6 +165,23 @@ const styles = StyleSheet.create({
     backgroundColor: 'mediumslateblue',
     borderRadius: 5,
   },
+  googleButtonView: {
+    marginTop: 15,
+    marginLeft: 10,
+    width: 220,
+    height: 40,
+    backgroundColor: 'tomato',
+    borderRadius: 5,
+  },
+  googleTextStyling: {
+    color: 'white',
+    textAlign: 'center',
+    paddingTop: 8,
+    fontSize: 16,
+    fontWeight: 'bold',
+    // fontFamily: 'monospace',
+    // fontFamily: 'JosefinSans-Bold',
+  },
   registerNavView: {
     flex: 1,
     flexDirection: 'row',
@@ -163,8 +189,15 @@ const styles = StyleSheet.create({
     // paddingHorizontal: 45,
     paddingTop: 10,
   },
-  registerNavJustify: {
+  navJustify: {
     alignSelf: 'center',
+  },
+  alternativeNavView: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    // paddingHorizontal: 45,
+    paddingTop: 10,
   },
   textStyling: {
     color: 'white',
