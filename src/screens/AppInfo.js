@@ -13,6 +13,7 @@ import {
   TouchableOpacity,
   StatusBar,
   Button,
+  FlatList,
 } from 'react-native';
 
 import {
@@ -23,8 +24,58 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+const DATA = [
+  {
+    // id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: 1,
+    title:
+      'This is a student oriented application that we have built to assist them in being in constant touch of regular events happenning in the school',
+  },
+  {
+    // id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    id: 2,
+    title:
+      'This application is also made for the purpose of parents to be able to get proper information on their child, example know if they have class or no and also the report cards will be sent to their emails',
+  },
+  {
+    // id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    id: 3,
+    title:
+      'This application mainly has a feature that shows how many classes the student has attended and the percentage and more',
+  },
+  {
+    // id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    id: 4,
+    title:
+      'The other feature basically is to show the complete event list and time table of an academic year so that the student or their parents dont go uninformed or mislead regarding it in the first place',
+  },
+  {
+    // id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    id: 5,
+    title:
+      'And final feature is to kee continuosly updating all year marks card of a student in the app from the very 1st year so as to it can also serve as an official documentation for later purposes as well as the parents can have a look at their childs progress',
+  },
+];
+
+const Item = ({title, id}) => (
+  <View
+    // style={{
+    //   backgroundColor: id % 2 == 0 ? '#222222' : '#444444',
+    //   padding: 20,
+    //   marginVertical: 8,
+    //   marginHorizontal: 2,
+    //   elevation: 5,
+    // }}>
+    style={styles.item}>
+    <Text style={styles.listTextStyle}>{title}</Text>
+  </View>
+);
+
 const AppInfo = ({navigation}) => {
   // const [textValue, setTextValue] = useState('');
+
+  const renderItem = ({item}) => <Item title={item.title} />;
+
   return (
     <>
       <ScrollView style={styles.scrollViewSection}>
@@ -80,11 +131,13 @@ const AppInfo = ({navigation}) => {
                 as well as the parents can have a look at their child's progress
               </Text>
             </View>
-
-            {/* <View style={[styles.bottomTextView, styles.bottomText]}>
-            <Text style={styles.textSmall}>ROBOSOFT PVT. LTD.</Text>
-          </View> */}
           </View>
+          {/* <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            //THIS IS A PERFECTLY WORKING FLATLIST, just that we should use it inside a scroll view...
+          /> */}
           <View style={styles.footerSection}>
             <Divider />
             <View style={[styles.bottomTextView, styles.bottomText]}>
@@ -93,6 +146,11 @@ const AppInfo = ({navigation}) => {
           </View>
         </View>
       </ScrollView>
+      {/* <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      /> */}
     </>
   );
 };
@@ -225,6 +283,16 @@ const styles = StyleSheet.create({
     // borderBottomColor: 'white',
     backgroundColor: '#444444',
     elevation: 5,
+  },
+  item: {
+    backgroundColor: '#444444',
+    padding: 5,
+    marginVertical: 5,
+    marginHorizontal: 2,
+    elevation: 10,
+  },
+  title: {
+    fontSize: 32,
   },
 });
 export default AppInfo;

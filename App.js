@@ -14,8 +14,11 @@ import Login from './src/screens/Login';
 import Register from './src/screens/Register';
 import UserInfo from './src/screens/UserInfo';
 import UserProfile from './src/screens/UserProfile';
+import AppInfo from './src/screens/AppInfo';
 import HomePage from './src/screens/HomePage';
 import LandingPage from './src/screens/LandingPage';
+import ColorSwitchPage from './src/screens/ColorSwitchPage';
+import NavigationDrawerStructure from './src/screens/NavigationDrawerStructure';
 // import ModalAlert from './src/screens/ModalAlert';
 
 import {
@@ -48,7 +51,7 @@ import {
 
 const Stack = createStackNavigator();
 function App({navigation}) {
-  const [modalVisible, setModalVisible] = useState(false);
+  // const [modalVisible, setModalVisible] = useState(false);
   return (
     /**Stack nav 1 */
     /**Stack nav 2 is user profile and app info */
@@ -65,6 +68,9 @@ function App({navigation}) {
             },
             headerTintColor: 'white',
             headerBackTitle: 'Back',
+            headerLeft: () => (
+              <NavigationDrawerStructure navigationProps={navigation} />
+            ),
           }}
         />
         <Stack.Screen
@@ -96,6 +102,31 @@ function App({navigation}) {
             headerBackTitleStyle: {
               color: 'white',
             },
+            // headerLeft: () => (
+            //   <NavigationDrawerStructure navigationProps={navigation} />
+            // ),
+          }}
+        />
+
+        <Stack.Screen
+          name="AppInfo"
+          component={AppInfo}
+          options={{
+            title: 'AppInfo',
+            headerTitleStyle: {
+              color: 'white',
+            },
+            headerStyle: {
+              backgroundColor: '#292929',
+            },
+            headerTintColor: 'white',
+            headerBackTitle: 'Back',
+            headerBackTitleStyle: {
+              color: 'white',
+            },
+            headerLeft: () => (
+              <NavigationDrawerStructure navigationProps={navigation} />
+            ),
           }}
         />
         <Stack.Screen
@@ -109,6 +140,26 @@ function App({navigation}) {
             },
             headerTintColor: 'white',
             headerBackTitle: 'Back',
+            // headerLeft: () => (
+            //   <NavigationDrawerStructure navigationProps={navigation} />
+            // ),
+          }}
+        />
+
+        <Stack.Screen
+          name="ColorSwitchPage"
+          component={ColorSwitchPage}
+          options={{
+            title: 'ColorSwitchPage',
+            headerTitleStyle: {color: 'white'},
+            headerStyle: {
+              backgroundColor: '#292929',
+            },
+            headerTintColor: 'white',
+            headerBackTitle: 'Back',
+            // headerLeft: () => (
+            //   <NavigationDrawerStructure navigationProps={navigation} />
+            // ),
           }}
         />
 
@@ -116,39 +167,25 @@ function App({navigation}) {
           name="LandingPage"
           component={LandingPage}
           options={{
-            title: 'LandingPage',
+            // title: 'LandingPage',
             headerTitleStyle: {color: 'white'},
             headerStyle: {
               backgroundColor: '#292929',
             },
-            headerTintColor: 'white',
-            headerBackTitle: 'Back',
-            headerRight: () => (
-              <TouchableOpacity
-                // onPress={() => navigation.navigate('Login')}
-                onPress={() => Alert.alert('Logout', 'Are you sure?')}>
-                {/* onPress={() => (
-                  <Modal
-                    animationType="slide"
-                    transparent={true}
-                    visible={true}
-                    onRequestClose={() => {
-                      Alert.alert('Logout', 'Are you sure?');
-                    }}>
-                    <View style={styles.modalView}>
-                      <Text>Logout</Text>
-                      <Button title="Are you sure?" />
-                    </View>
-                  </Modal>
-                )}> */}
-                <View style={styles.btn}>
-                  <Image
-                    source={require('./src/assets/images/logout2.png')}
-                    style={styles.img}
-                  />
-                </View>
-              </TouchableOpacity>
-            ),
+            headerShown: false,
+            // headerTintColor: 'white',
+            // headerBackTitle: 'Back',
+            // headerRight: () => (
+            //   <TouchableOpacity
+            //     onPress={() => Alert.alert('Logout', 'Are you sure?')}>
+            //     <View style={styles.btn}>
+            //       <Image
+            //         source={require('./src/assets/images/logout2.png')}
+            //         style={styles.img}
+            //       />
+            //     </View>
+            //   </TouchableOpacity>
+            // ),
           }}
         />
 
@@ -168,6 +205,9 @@ function App({navigation}) {
             headerBackTitleStyle: {
               color: 'white',
             },
+            headerLeft: () => (
+              <NavigationDrawerStructure navigationProps={navigation} />
+            ),
           }}
         />
       </Stack.Navigator>

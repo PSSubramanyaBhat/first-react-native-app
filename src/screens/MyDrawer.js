@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 // import HomePage from './HomePage';
 // import UserProfile from './UserProfile';
 // import AppInfo from './AppInfo';
+import ColorSwitchPage from './ColorSwitchPage';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -28,6 +29,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {color} from 'react-native-reanimated';
 function Screen1({navigation}) {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -53,6 +55,7 @@ function MyDrawer() {
     <Drawer.Navigator initialRouteName="Home">
       <Drawer.Screen name="Home" component={Screen1} />
       <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+      <Drawer.Screen name="ColorSwitchPage" component={ColorSwitchPage} />
     </Drawer.Navigator>
   );
 }

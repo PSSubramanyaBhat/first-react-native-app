@@ -11,6 +11,7 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
+  Switch,
   StatusBar,
   Button,
   KeyboardAvoidingView,
@@ -26,10 +27,30 @@ import {
 
 const Login = ({navigation}) => {
   // const [textValue, setTextValue] = useState('');
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
     <>
       <ScrollView style={styles.scrollViewSection}>
+        <View>
+          <Switch
+            trackColor={{false: '#767577', true: '#81b0ff'}}
+            thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+          />
+        </View>
         <View style={styles.headerSection}>
+          {/* <View>
+            <Switch
+              trackColor={{false: '#767577', true: '#81b0ff'}}
+              thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+              ios_backgroundColor="#3e3e3e"
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+            />
+          </View> */}
           <View style={styles.circularAvtar}>
             <Image
               style={styles.appAvtarImage}
