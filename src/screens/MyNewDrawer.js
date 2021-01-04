@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 
 import * as React from 'react';
-import {View, TouchableOpacity, Image} from 'react-native';
+import {View, TouchableOpacity, Image, Alert, StyleSheet} from 'react-native';
 import UserProfile from './UserProfile';
 import AppInfo from './AppInfo';
 import ColorSwitchPage from './ColorSwitchPage';
@@ -25,6 +25,17 @@ function firstScreenStack({navigation}) {
           title: 'App Info', //Set Header Title
           headerLeft: () => (
             <NavigationDrawerStructure navigationProps={navigation} />
+          ),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => Alert.alert('Logout', 'Are you sure?')}>
+              <View style={styles.btn}>
+                <Image
+                  source={require('../assets/images/logout2.png')}
+                  style={styles.img}
+                />
+              </View>
+            </TouchableOpacity>
           ),
           headerStyle: {
             // backgroundColor: '#f4511e', //Set Header color
@@ -149,4 +160,28 @@ function MyNewDrawer({navigation}) {
     </Drawer.Navigator>
   );
 }
+const styles = StyleSheet.create({
+  buttonView: {
+    height: 30,
+    width: 30,
+  },
+  img: {
+    height: 30,
+    width: 30,
+  },
+  modalView: {
+    height: 50,
+    width: 50,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+});
+
 export default MyNewDrawer;

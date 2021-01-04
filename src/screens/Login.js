@@ -96,9 +96,9 @@ const Login = ({navigation}) => {
 
           <View style={styles.navJustify}>
             <Text style={styles.textStyling}>Or Login with</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+            <TouchableOpacity onPress={() => navigation.navigate('TryPage1')}>
               <View style={styles.googleButtonView}>
-                <Text style={styles.googleTextStyling}>GOOGLE</Text>
+                <Text style={styles.googleTextStyling}>EXPERIMENT 1</Text>
               </View>
             </TouchableOpacity>
           </View>

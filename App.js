@@ -19,6 +19,8 @@ import HomePage from './src/screens/HomePage';
 import LandingPage from './src/screens/LandingPage';
 import ColorSwitchPage from './src/screens/ColorSwitchPage';
 import NavigationDrawerStructure from './src/screens/NavigationDrawerStructure';
+import TryPage1 from './src/screens/TryPage1';
+
 // import ModalAlert from './src/screens/ModalAlert';
 
 import {
@@ -208,6 +210,23 @@ function App({navigation}) {
             headerLeft: () => (
               <NavigationDrawerStructure navigationProps={navigation} />
             ),
+          }}
+        />
+
+        <Stack.Screen
+          name="TryPage1"
+          component={TryPage1}
+          options={{
+            title: 'TryPage1',
+            headerTitleStyle: {color: 'white'},
+            headerStyle: {
+              backgroundColor: '#292929',
+            },
+            headerTintColor: 'white',
+            headerBackTitle: 'Back',
+            // headerLeft: () => (
+            //   <NavigationDrawerStructure navigationProps={navigation} />
+            // ),
           }}
         />
       </Stack.Navigator>
